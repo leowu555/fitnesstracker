@@ -19,5 +19,3 @@ organized tracker that keeps everything in order and shows what exercise I need 
 - As a user, I want to be able to edit or delete a planned workout routine.
 - As a user, I want to set a weekly exersize goal.
 - As a user, I want to set a weekly nutrition goal.
-
-An example of text with **bold** and *italic* fonts.  
