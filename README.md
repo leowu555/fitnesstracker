@@ -14,8 +14,7 @@ organized tracker that keeps everything in order and shows what exercise I need 
 
 - As a user, I want to be able to add my workout to the list of workouts that I need to complete.
 - As a user, I want to be able to view the list of workouts I need to complete.
-- As a user, I want to be able to view the list of workouts I have completed.
+- As a user, I want to be able to remove the workouts from list of workouts.
 - As a user, I want to make today's workout as complete.
 - As a user, I want to be able to edit or delete a planned workout routine.
-- As a user, I want to set a weekly exersize goal.
-- As a user, I want to set a weekly nutrition goal.
+- As a user, I want to set a nutrition goal.
