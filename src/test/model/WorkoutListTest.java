@@ -3,6 +3,9 @@ package model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -25,6 +28,17 @@ public class WorkoutListTest {
         testWorkoutList.addWorkout("pushups");
         assertEquals(1, testWorkoutList.size());
         assertTrue(testWorkoutList.isWorkoutInList("pushups"));
+    }
+
+    @Test
+    void testGetWorkoutList() {
+        testWorkoutList.addWorkout("pullups");
+        testWorkoutList.addWorkout("plank");
+        List<String> workoutList = testWorkoutList.getWorkoutList();
+        assertEquals(2, workoutList.size());
+        assertTrue(workoutList.contains("pullups"));
+        assertTrue(workoutList.contains("plank"));
+
     }
 
     @Test
