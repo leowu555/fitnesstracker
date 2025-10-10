@@ -11,13 +11,13 @@ public class GoalsTest {
     @BeforeEach
     void runBefore() {
         testGoalsA = new Goals("bench 225 pounds");
-        testGoalsB = new Goals("keep my weight less than 160 pounds");
+        testGoalsB = new Goals("Take 150 grams of protein");
     }
 
     @Test
     void testConstructor() {
         assertEquals("bench 225 pounds", testGoalsA.getGoals());
-        assertEquals("keep my weight less than 160 pounds", testGoalsB.getGoals());
+        assertEquals("Take 150 grams of protein", testGoalsB.getGoals());
     }
 
     @Test
@@ -36,38 +36,31 @@ public class GoalsTest {
         assertEquals("30 pushups", testGoalsA.getGoals());
     }
 
-
     @Test
     void testAddProteinOnce() {
-        testGoalsA.addProtein(50);
-        assertEquals(50, testGoalsA.getCurrentProtein());
-        testGoalsB.addProtein(60);
-        assertEquals(60, testGoalsA.getCurrentProtein());
+        testGoalsB.addProtein(50);
+        assertEquals(50, testGoalsB.getCurrentProtein());
     }
 
     @Test
     void testAddMultupleProtein() {
-        testGoalsA.addProtein(50);
-        assertEquals(50, testGoalsA.getCurrentProtein());
-        testGoalsA.addProtein(60);
-        assertEquals(110, testGoalsA.getCurrentProtein());
-        
+        testGoalsB.addProtein(50);
+        assertEquals(50, testGoalsB.getCurrentProtein());
+        testGoalsB.addProtein(60);
+        assertEquals(110, testGoalsB.getCurrentProtein());
+
     }
 
     @Test
     void testIsGoalMet() {
-        testGoalsA.setProteinGoals(200);
-        testGoalsA.addProtein(100);
-        testGoalsA.addProtein(100);
-        assertTrue(testGoalsA.isGoalmet());
-        testGoalsA.setProteinGoals(220);
-        testGoalsA.addProtein(100);
-        testGoalsA.addProtein(90);
-        assertFalse(testGoalsA.isGoalmet());
-        
+        testGoalsB.setProteinGoals(200);
+        testGoalsB.addProtein(100);
+        testGoalsB.getCurrentProtein();
+        assertFalse(testGoalsB.isGoalmet());
+        testGoalsB.setProteinGoals(250);
+        testGoalsB.addProtein(150);
+        testGoalsB.getCurrentProtein();
+        assertTrue(testGoalsB.isGoalmet());
     }
-
-
-
 
 }
