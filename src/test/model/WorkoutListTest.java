@@ -3,15 +3,14 @@ package model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class WorkoutListTest {
     private WorkoutList testWorkoutList;
 
     @BeforeEach
-    void runBefore() {
+    public void runBefore() {
         testWorkoutList = new WorkoutList();
     }
 
@@ -56,11 +55,7 @@ public class WorkoutListTest {
         testWorkoutList.addWorkout("bench press");
         assertTrue(testWorkoutList.isWorkoutInList("bench press"));
         testWorkoutList.removeWorkout("bench press");
-        assertFalse(testWorkoutList.isWorkoutInList("bench"));
+        assertFalse(testWorkoutList.isWorkoutInList("bench press"));
     }
-
-
-
-
 
 }
