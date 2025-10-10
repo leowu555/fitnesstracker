@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a list of workouts that needs to be completed.
 public class WorkoutList {
     private List<String> workoutList;
 
@@ -21,13 +22,17 @@ public class WorkoutList {
         workoutList.add(workoutName);
     }
 
+    public List<String> getWorkoutList() {
+        return workoutList;
+    }
+
     /*
      * EFFECTS: Check if the workout name is already in the list,
      * if not in the list, return false, if in the list, return true.
      */
     public boolean isWorkoutInList(String workoutName) {
-        for(int i = 0; i<workoutList.size();) {
-            if(workoutList.contains(workoutName)) {
+        for (int i = 0; i < workoutList.size();) {
+            if (workoutList.contains(workoutName)) {
                 return true;
             } else {
                 return false;
