@@ -7,7 +7,7 @@ public class Workout {
     private boolean hasCompleted;
 
     /*
-     * REQUIRES: minsNeeded > 0, workoutName has non-zero length.
+     * REQUIRES: minsNeeded > 0, workoutName has non-zero positive length.
      * EFFECTS: Construct a workout that includes a name and the minutes needed to
      * complete this workout.
      */
