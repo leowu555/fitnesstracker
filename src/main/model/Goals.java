@@ -1,12 +1,13 @@
 package model;
 
+// Represents a goal that the user can set for their workout and nutrition.
 public class Goals {
     private String goals;
     private int proteinGoals;
     private int currentProtein;
 
     /*
-     * REQUIRES: Goals need to have non-zero string length.
+     * REQUIRES: Goals need to have non-zero positive string length.
      * EFFECTS: Constructs the user goals for exercise and nutrition.
      */
     public Goals(String goals) {
