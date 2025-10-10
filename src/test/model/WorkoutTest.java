@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class WorkoutTest {
     private Workout testWorkout;
 
-
     @BeforeEach
     void runBefore() {
         testWorkout = new Workout("bench press", 20);
