@@ -4,39 +4,49 @@ package model;
 public class Workout {
     private String name;
     private int minsNeeded;
-/*
- * REQUIRES: minsNeeded > 0
- * EFFECTS: Construct a workout that includes a name and the minutes needed to complete this workout.
- */
-public Workout (String workoutName, int minsNeeded) {
-    name = workoutName;
-    this.minsNeeded = minsNeeded;
-}
+    private boolean hasCompleted;
 
-public String getName() {
-    return name;
-}
+    /*
+     * REQUIRES: minsNeeded > 0, workoutName has non-zero length.
+     * EFFECTS: Construct a workout that includes a name and the minutes needed to
+     * complete this workout.
+     */
+    public Workout(String workoutName, int minsNeeded) {
+        name = workoutName;
+        this.minsNeeded = minsNeeded;
+        this.hasCompleted = false;
+    }
 
-public int getDuration() {
-    return minsNeeded;
-}
+    public String getName() {
+        return name;
+    }
 
-public void setDuration(int newDuration) {
-    
-}
+    public int getDuration() {
+        return minsNeeded;
+    }
 
-/*
- * EFFECTS: Check if the workout is completed. Return true if the workout is completed, false otherwise.
- */
-public boolean isCompleted() {
-    return false;
-}
+    public void setDuration(int newDuration) {
+        this.minsNeeded = newDuration;
 
-/*
- * MODIFIES: this
- * EFFECTS: Mark the workout as complete if it is incomplete.
- */
-public void markComplete() {
-}
+    }
+
+    /*
+     * EFFECTS: Check if the workout is completed. Return true if the workout is
+     * completed, false otherwise.
+     */
+    public boolean isCompleted() {
+        if (hasCompleted == true) {
+            return true;
+        }
+        return false;
+    }
+
+    /*
+     * MODIFIES: this
+     * EFFECTS: Mark the workout as complete if it is incomplete.
+     */
+    public void markComplete() {
+        this.hasCompleted = true;
+    }
 
 }
