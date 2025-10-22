@@ -18,3 +18,5 @@ organized tracker that keeps everything in order and shows what exercise I need 
 - As a user, I want to make today's workout as complete.
 - As a user, I want to be able to edit or delete a planned workout routine.
 - As a user, I want to set a nutrition goal.
+- As a user, I want to be able to save my workout list to file.
+- As a user, when I start the application, I want to be given the option to reload my to-do list from file and resume from where I left off.
