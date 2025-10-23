@@ -15,7 +15,7 @@ public class FitnessApp {
     public FitnessApp() {
         runFitnessApp();
     }
-
+    // EFFECTS: Initializes the app state and repeatly displays a menu for the user
     public void runFitnessApp() {
         boolean keepGoing = true;
         String command = "";
