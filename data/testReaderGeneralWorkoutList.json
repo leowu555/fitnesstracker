@@ -1,0 +1,20 @@
+{
+    "WorkoutList": [
+        {
+            "name": "Push-up",
+            "minsNeeded": "30",
+            "hasCompleted": "true"
+        },
+        {
+            "name": "Running",
+            "minsNeeded": "20",
+            "hasCompleted": "false"
+        },
+        {
+            "name": "Sit-up",
+            "minsNeeded": "15",
+            "hasCompleted": "false"
+        }
+    ],
+    "name": "My Workouts to Complete"
+}

@@ -1,0 +1,15 @@
+{
+    "WorkoutList": [
+        {
+            "hasCompleted": false,
+            "name": "Push",
+            "minsNeeded": 20
+        },
+        {
+            "hasCompleted": false,
+            "name": "Squat",
+            "minsNeeded": 15
+        }
+    ],
+    "name": "My Workouts to Complete"
+}
