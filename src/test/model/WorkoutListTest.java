@@ -11,65 +11,66 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class WorkoutListTest {
     private WorkoutList testWorkoutList;
+    private Workout testWorkout1;
+    private Workout testWorkout2;
 
     @BeforeEach
     public void runBefore() {
-        testWorkoutList = new WorkoutList();
+        testWorkoutList = new WorkoutList("My Workouts to Complete");
+        testWorkout1 = new Workout("push-up", 20);
+        testWorkout2 = new Workout("sit-up", 10);
     }
 
     @Test
     void testConstructor() {
-        assertEquals(0, testWorkoutList.size());
-        assertFalse(testWorkoutList.isWorkoutInList("pushup"));
+        assertEquals(0, testWorkoutList.getSize());
+        assertEquals("My Workouts to Complete", testWorkoutList.getListName());
+        assertFalse(testWorkoutList.isWorkoutInList(testWorkout1));
     }
 
     @Test
     void testAddWorkoutOnce() {
-        testWorkoutList.addWorkout("pushups");
-        assertEquals(1, testWorkoutList.size());
-        assertTrue(testWorkoutList.isWorkoutInList("pushups"));
+        testWorkoutList.addWorkout(testWorkout1);
+        assertEquals(1, testWorkoutList.getSize());
+        assertTrue(testWorkoutList.isWorkoutInList(testWorkout1));
     }
 
     @Test
     void testGetWorkoutList() {
-        testWorkoutList.addWorkout("pullups");
-        testWorkoutList.addWorkout("plank");
-        List<String> workoutList = testWorkoutList.getWorkoutList();
+        testWorkoutList.addWorkout(testWorkout1);
+        testWorkoutList.addWorkout(testWorkout2);
+        List<Workout> workoutList = testWorkoutList.getWorkoutList();
         assertEquals(2, workoutList.size());
-        assertTrue(workoutList.contains("pullups"));
-        assertTrue(workoutList.contains("plank"));
+        assertTrue(workoutList.contains(testWorkout1));
+        assertTrue(workoutList.contains(testWorkout2));
 
     }
 
     @Test
     void testAddMultipleWorkout() {
-        testWorkoutList.addWorkout("squats");
-        testWorkoutList.addWorkout("dips");
-        testWorkoutList.addWorkout("situps");
-
-        assertTrue(testWorkoutList.isWorkoutInList("squats"));
-        assertTrue(testWorkoutList.isWorkoutInList("dips"));
-        assertTrue(testWorkoutList.isWorkoutInList("situps"));
-
-        assertEquals(3, testWorkoutList.size());
+        testWorkoutList.addWorkout(testWorkout1);
+        testWorkoutList.addWorkout(testWorkout2);
+        assertTrue(testWorkoutList.isWorkoutInList(testWorkout1));
+        assertTrue(testWorkoutList.isWorkoutInList(testWorkout2));
+        assertEquals(2, testWorkoutList.getSize());
     }
 
     @Test
     void testIsWorkoutInList() {
-        testWorkoutList.addWorkout("pushups");
-        assertFalse(testWorkoutList.isWorkoutInList("situps"));
-        assertTrue(testWorkoutList.isWorkoutInList("pushups"));
-        testWorkoutList.removeWorkout("pushups");
-        assertFalse(testWorkoutList.isWorkoutInList("pushups"));
+        testWorkoutList.addWorkout(testWorkout1);
+        assertFalse(testWorkoutList.isWorkoutInList(testWorkout2));
+        assertTrue(testWorkoutList.isWorkoutInList(testWorkout1));
+        testWorkoutList.removeWorkout(testWorkout1);
+        assertFalse(testWorkoutList.isWorkoutInList(testWorkout1));
 
     }
 
     @Test
     void testRemoveWorkout() {
-        testWorkoutList.addWorkout("bench press");
-        assertTrue(testWorkoutList.isWorkoutInList("bench press"));
-        testWorkoutList.removeWorkout("bench press");
-        assertFalse(testWorkoutList.isWorkoutInList("bench press"));
+        testWorkoutList.addWorkout(testWorkout1);
+        assertTrue(testWorkoutList.isWorkoutInList(testWorkout1));
+        testWorkoutList.removeWorkout(testWorkout1);
+        assertFalse(testWorkoutList.isWorkoutInList(testWorkout1));
     }
 
 }
