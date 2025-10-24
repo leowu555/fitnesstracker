@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a list of workouts that needs to be completed.
-public class WorkoutList {
+public class WorkoutList implements Writable {
     private List<Workout> workoutList;
     private String name;
 
@@ -64,4 +68,22 @@ public class WorkoutList {
         return name;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("WorkoutList", workoutListToJson());
+        json.put("name", name);
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray workoutListToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Workout w : workoutList) {
+            jsonArray.put(w.toJson());
+        }
+
+        return jsonArray;
+    }
 }
