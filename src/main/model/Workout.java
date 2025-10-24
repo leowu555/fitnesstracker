@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a workout that needs to be completed or has already completed.
-public class Workout {
+public class Workout implements Writable {
     private String name;
     private int minsNeeded;
     private boolean hasCompleted;
@@ -49,4 +52,12 @@ public class Workout {
         this.hasCompleted = true;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("minsNeeded", minsNeeded);
+        json.put("hasCompleted", hasCompleted);
+        return json;
+    }
 }
