@@ -3,19 +3,30 @@ package ui;
 import model.WorkoutList;
 import model.Goals;
 import model.Workout;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
-// I refered to the TellerApp to design the ui code.
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
+
+// I refered to the TellerApp to design the ui code.
+@ExcludeFromJacocoGeneratedReport
 public class FitnessApp {
     private Scanner input;
     private WorkoutList workoutList;
     private Goals goals;
+    private static final String JSON_STORE = "./data/workoutlist.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the fitness application
     public FitnessApp() {
         runFitnessApp();
     }
+
     // EFFECTS: Initializes the app state and repeatly displays a menu for the user
     public void runFitnessApp() {
         boolean keepGoing = true;
@@ -43,6 +54,8 @@ public class FitnessApp {
         goals = new Goals("Weekly workout and protein goal");
         input = new Scanner(System.in);
         input.useDelimiter("\r?\n|\r");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays menu of the options that user can have access to
@@ -54,6 +67,8 @@ public class FitnessApp {
         System.out.println("\ts -> Set protein goal");
         System.out.println("\tl -> Log protein intake");
         System.out.println("\tc -> Check if goal met");
+        System.out.println("\tb -> save workout list to file");
+        System.out.println("\td -> load workout list from file");
         System.out.println("\tx -> Leave");
     }
 
@@ -72,6 +87,10 @@ public class FitnessApp {
             logProteinIntake();
         } else if (command.equals("c")) {
             checkIfGoalMet();
+        } else if (command.equals("b")) {
+            saveWorkoutList();
+        } else if (command.equals("d")) {
+            loadWorkoutList();
         } else {
             System.out.println("Selection is Invalid");
         }
@@ -117,7 +136,7 @@ public class FitnessApp {
     private void viewWorkout() {
         System.out.println("Workouts needed to complete:");
         for (Workout s : workoutList.getWorkoutList()) {
-            System.out.println("Workouts needed to complete:" + s.getName());
+            System.out.println(s.getName());
         }
     }
 
@@ -150,4 +169,26 @@ public class FitnessApp {
 
     }
 
+    // EFFECTS: saves the workoutlist to file
+    private void saveWorkoutList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(workoutList);
+            jsonWriter.close();
+            System.out.println("Saved " + workoutList.getListName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println(" Unable to write to file " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workoutlist from file
+    private void loadWorkoutList() {
+        try {
+            workoutList = jsonReader.read();
+            System.out.println(" Loaded " + workoutList.getListName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println(" Unable to read from file " + JSON_STORE);
+        }
+    }
 }
