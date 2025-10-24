@@ -2,6 +2,7 @@ package ui;
 
 import model.WorkoutList;
 import model.Goals;
+import model.Workout;
 
 import java.util.Scanner;
 // I refered to the TellerApp to design the ui code.
@@ -38,7 +39,7 @@ public class FitnessApp {
     // MODIFIES: this
     // EFFECTS: initializes the workout list and goals.
     private void init() {
-        workoutList = new WorkoutList();
+        workoutList = new WorkoutList("My Workouts to Complete");
         goals = new Goals("Weekly workout and protein goal");
         input = new Scanner(System.in);
         input.useDelimiter("\r?\n|\r");
@@ -83,8 +84,13 @@ public class FitnessApp {
     private void addWorkout() {
         System.out.println("Please enter workout name: ");
         String name = input.next();
-        if (!workoutList.isWorkoutInList(name)) {
-            workoutList.addWorkout(name);
+
+        System.out.println("Please enter duration: ");
+        int duration = input.nextInt();
+
+        Workout workout = new Workout(name, duration);
+        if (!workoutList.isWorkoutInList(workout)) {
+            workoutList.addWorkout(workout);
             System.out.println("Workout has been added:" + name);
         } else {
             System.out.println("Workout is already in the list.");
@@ -97,8 +103,10 @@ public class FitnessApp {
     private void removeWorkout() {
         System.out.println("Enter the workout name to remove: ");
         String name = input.next();
-        if (workoutList.isWorkoutInList(name)) {
-            workoutList.removeWorkout(name);
+
+        Workout workout = new Workout(name, 0);
+        if (workoutList.isWorkoutInList(workout)) {
+            workoutList.removeWorkout(workout);
             System.out.println("Workout has been removed" + name);
         } else {
             System.out.println("Workout is not in list.");
@@ -108,8 +116,8 @@ public class FitnessApp {
     // EFFECTS: Shows and displays the current workout list to the user.
     private void viewWorkout() {
         System.out.println("Workouts needed to complete:");
-        for (String s : workoutList.getWorkoutList()) {
-            System.out.println("Workouts needed to complete:" + s);
+        for (Workout s : workoutList.getWorkoutList()) {
+            System.out.println("Workouts needed to complete:" + s.getName());
         }
     }
 
