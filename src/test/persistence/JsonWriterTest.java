@@ -45,8 +45,8 @@ class JsonWriterTest extends JsonTest {
     void testWriterGeneralWorkoutList() {
         try {
             WorkoutList wl = new WorkoutList("My Workouts to Complete");
-            wl.addWorkout(new Workout("push", 20));
-            wl.addWorkout(new Workout("squat", 15));
+            wl.addWorkout(new Workout("Push", 20));
+            wl.addWorkout(new Workout("Squat", 15));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralWorkoutList.json");
             writer.open();
             writer.write(wl);
@@ -57,8 +57,8 @@ class JsonWriterTest extends JsonTest {
             assertEquals("My Workouts to Complete", wl.getListName());
             List<Workout> workouts = wl.getWorkoutList();
             assertEquals(2, workouts.size());
-            checkWorkout("push", 30, false, workouts.get(0));
-            checkWorkout("squat", 30, false, workouts.get(1));
+            checkWorkout("Push", 20, false, workouts.get(0));
+            checkWorkout("Squat", 15, false, workouts.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");
