@@ -45,7 +45,7 @@ class JsonReaderTest extends JsonTest {
             assertEquals("My Workouts to Complete", wl.getListName());
             List<Workout> workouts = wl.getWorkoutList();
             assertEquals(3, workouts.size());
-            checkWorkout("Push-up", 30, false, workouts.get(0));
+            checkWorkout("Push-up", 30, true, workouts.get(0));
             checkWorkout("Running", 20, false, workouts.get(1));
             checkWorkout("Sit-up", 15, false, workouts.get(2));
         } catch (IOException e) {
