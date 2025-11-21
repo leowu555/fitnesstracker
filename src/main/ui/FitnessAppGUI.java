@@ -141,7 +141,7 @@ public class FitnessAppGUI extends JFrame implements ActionListener {
         label = new JLabel();
 
         img.add(label);
-        img.setBorder(BorderFactory.createTitledBorder("Visual Component"));
+        img.setBorder(BorderFactory.createTitledBorder("Making Fitness Easier - GoalFit"));
         add(img, BorderLayout.SOUTH);
     }
 
