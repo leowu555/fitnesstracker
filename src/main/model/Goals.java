@@ -1,10 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Represents a goal that the user can set for their workout and nutrition.
 public class Goals {
     private String goals;
     private int proteinGoals;
     private int currentProtein;
+    private List<Integer> dailyProtein;
 
     /*
      * REQUIRES: Goals need to have non-zero positive string length.
@@ -12,6 +16,10 @@ public class Goals {
      */
     public Goals(String goals) {
         this.goals = goals;
+        this.dailyProtein = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            dailyProtein.add(0);
+    }
     }
 
     public void setGoals(String newGoals) {
@@ -39,6 +47,10 @@ public class Goals {
         this.currentProtein += amount;
     }
 
+    public void resetProtein() {
+        this.currentProtein = 0;
+    }
+
     /*
      * REQUIRES: currentProtein > 0, proteinGoals > 0.
      * EFFECTS: Checks if the goals are met, produce true of a goal is met, if a
@@ -51,4 +63,13 @@ public class Goals {
         return false;
     }
 
+    public void logProteinForDay(int dayIndex, int grams) {
+        int updated = dailyProtein.get(dayIndex) + grams;
+        dailyProtein.set(dayIndex, updated);
+        currentProtein += grams;
+    }
+
+    public List<Integer> getDailyProtein() {
+        return new ArrayList<>(dailyProtein);
+    }
 }
