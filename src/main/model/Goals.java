@@ -19,7 +19,7 @@ public class Goals {
         this.dailyProtein = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
             dailyProtein.add(0);
-    }
+        }
     }
 
     public void setGoals(String newGoals) {
@@ -48,7 +48,9 @@ public class Goals {
     }
 
     public void resetProtein() {
-        this.currentProtein = 0;
+        for (int i = 0; i < 7; i++) {
+            dailyProtein.set(i, 0);
+        }
     }
 
     /*
