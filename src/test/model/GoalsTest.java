@@ -63,4 +63,31 @@ public class GoalsTest {
         assertTrue(testGoalsB.isGoalmet());
     }
 
+    @Test
+    void testResetProtein() {
+        testGoalsB.logProteinForDay(0, 50);
+        testGoalsB.logProteinForDay(1, 70);
+        testGoalsB.resetProtein();
+
+        for (Integer protein : testGoalsB.getDailyProtein()) {
+            assertEquals(0, protein);
+        }
+    }
+
+    @Test
+    void testLogProtein() {
+        testGoalsA.logProteinForDay(3, 30);
+        testGoalsA.logProteinForDay(3, 20);
+        testGoalsA.logProteinForDay(0, 10);
+        assertEquals(60, testGoalsA.getCurrentProtein());
+        assertEquals(10, testGoalsA.getDailyProtein().get(0));
+        assertEquals(50, testGoalsA.getDailyProtein().get(3));
+    }
+
+    @Test
+    void testIsGoalMetExactValue() {
+        testGoalsB.setProteinGoals(100);
+        testGoalsB.addProtein(100);
+        assertTrue(testGoalsB.isGoalmet());
+    }
 }
