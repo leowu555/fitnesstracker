@@ -20,3 +20,12 @@ organized tracker that keeps everything in order and shows what exercise I need 
 - As a user, I want to set a nutrition goal.
 - As a user, I want to be able to save my workout list to file.
 - As a user, when I start the application, I want to be given the option to reload my to-do list from file and resume from where I left off.
+
+# Instructions for End User
+
+- You can view the panel that displays the workouts that have already been added to the workout list by clicking the button titled "View All" and look at the panel for the application titled "Workouts In Your List".
+- You can generate the first required action related to the user story "adding multiple workouts to a workout list" by clicking "Add Workout" button at the top of the window.
+- You can generate the second required action related to the user story "adding multiple workouts to the workout list" by clicking the "Show Completed" button that filters and displays only the workouts that are marked as completed.
+- You can locate my visual component by clicking "View Graph" which displays a bar chart on the right of the panel with title: "Weekly Protein Intake Graph"
+- You can save the state of my application by clicking the "Save" button located in the top of the panel.
+- You can reload the state of my application by clicking the "Load" button in the top of the panel.

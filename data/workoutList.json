@@ -1,8 +1,8 @@
 {
     "WorkoutList": [{
         "hasCompleted": false,
-        "name": "ee",
-        "minsNeeded": 1
+        "name": "yes",
+        "minsNeeded": 22
     }],
-    "name": "My Workouts to Complete"
+    "name": "My Workouts"
 }
