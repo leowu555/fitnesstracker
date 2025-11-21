@@ -46,5 +46,4 @@ public class ProteinGraphPanel extends JPanel {
             g.drawString(dailyProtein.get(i) + "g", x + 5, y - 5);
         }
     }
-
 }
