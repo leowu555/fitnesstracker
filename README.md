@@ -52,3 +52,8 @@ Logged 45g of protein for day 0
 
 Thu Nov 27 22:41:17 PST 2025
 Reset weekly protein intake log
+
+# Phase 4: Task 3
+The UML class diagram reflects the final structure of my application, it shows the relationships between the model package, the UI package, and persistence package. It uses the interface implementations and class associations to illustrate how each classes are connected and how to display the user interface.
+
+If I had more time to work on the project, I would refactor some of the responsibilities from the FitnessApp and FitnessGUI class, because both classes handle a lot of tasks and have a lot of methods, I would refactor the functionalities that handle the protein tracking actions into a separate class to keep the UI code cleaner and easier to manage and debug. It would also make the app easier to improve and add additional functionalities.
