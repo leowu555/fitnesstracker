@@ -36,6 +36,7 @@ public class Goals {
 
     public void setProteinGoals(int grams) {
         this.proteinGoals = grams;
+        EventLog.getInstance().logEvent(new Event("Protein goal set to: " + grams + " grams"));
     }
 
     /*
@@ -45,12 +46,14 @@ public class Goals {
      */
     public void addProtein(int amount) {
         this.currentProtein += amount;
+        EventLog.getInstance().logEvent(new Event("Added " + amount + "g protein to current total"));
     }
 
     public void resetProtein() {
         for (int i = 0; i < 7; i++) {
             dailyProtein.set(i, 0);
         }
+        EventLog.getInstance().logEvent(new Event("Reset weekly protein intake log"));
     }
 
     /*
@@ -69,6 +72,7 @@ public class Goals {
         int updated = dailyProtein.get(dayIndex) + grams;
         dailyProtein.set(dayIndex, updated);
         currentProtein += grams;
+        EventLog.getInstance().logEvent(new Event("Logged " + grams + "g of protein for day " + dayIndex));
     }
 
     public List<Integer> getDailyProtein() {

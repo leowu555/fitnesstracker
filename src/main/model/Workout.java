@@ -50,6 +50,7 @@ public class Workout implements Writable {
      */
     public void markComplete() {
         this.hasCompleted = true;
+        EventLog.getInstance().logEvent(new Event("Workout marked as complete " + name));
     }
 
     @Override

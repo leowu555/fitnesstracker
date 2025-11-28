@@ -26,6 +26,7 @@ public class WorkoutList implements Writable {
      */
     public void addWorkout(Workout workoutName) {
         workoutList.add(workoutName);
+        EventLog.getInstance().logEvent(new Event("Workout added: " + workoutName.getName()));
     }
 
     public List<Workout> getWorkoutList() {
@@ -37,14 +38,7 @@ public class WorkoutList implements Writable {
      * if not in the list, return false, if in the list, return true.
      */
     public boolean isWorkoutInList(Workout workoutName) {
-        for (int i = 0; i < workoutList.size();) {
-            if (workoutList.contains(workoutName)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
+        return workoutList.contains(workoutName);
     }
 
     /*
@@ -54,6 +48,7 @@ public class WorkoutList implements Writable {
      */
     public void removeWorkout(Workout workoutName) {
         workoutList.remove(workoutName);
+        EventLog.getInstance().logEvent(new Event("Workout removed: " + workoutName.getName()));
     }
 
     /*

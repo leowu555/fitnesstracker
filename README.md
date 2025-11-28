@@ -29,3 +29,26 @@ organized tracker that keeps everything in order and shows what exercise I need 
 - You can locate my visual component by clicking "View Graph" which displays a bar chart on the right of the panel with title: "Weekly Protein Intake Graph"
 - You can save the state of my application by clicking the "Save" button located in the top of the panel.
 - You can reload the state of my application by clicking the "Load" button in the top of the panel.
+
+# Phase 4: Task 2
+
+Thu Nov 27 22:39:08 PST 2025
+Workout added: Push up
+
+Thu Nov 27 22:39:16 PST 2025
+Workout added: Pull up
+
+Thu Nov 27 22:39:20 PST 2025
+Workout marked as complete Push up
+
+Thu Nov 27 22:39:22 PST 2025
+Workout marked as complete Pull up
+
+Thu Nov 27 22:39:29 PST 2025
+Protein goal set to: 150 grams
+
+Thu Nov 27 22:40:53 PST 2025
+Logged 45g of protein for day 0
+
+Thu Nov 27 22:41:17 PST 2025
+Reset weekly protein intake log

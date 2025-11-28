@@ -2,6 +2,7 @@ package ui;
 
 import model.Workout;
 import model.WorkoutList;
+import model.EventLog;
 import model.Goals;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -50,6 +51,16 @@ public class FitnessAppGUI extends JFrame implements ActionListener {
         setVisible(true);
 
         goals = new Goals("No goals set yet");
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.out.println("Event Log:");
+                for (model.Event event: EventLog.getInstance()) {
+                    System.out.println(event.toString() + "\n");
+                }
+            }
+        });
     }
 
     // EFFECTS: Initialized the main JFrame
