@@ -1,5 +1,4 @@
 # Fitness Tracker
-## CPSC 210 Term Project
 The personal project that I am going to design this term is a fitness tracker. 
 The fitness tracker tracks the daily exercises that users complete in a day, such as how many steps or how many kilometers the user completes in a day, and it can log workouts with guided routines. It also allows users to record the daily fitness goals that the user aims for. Furthermore, it allows users to track their daily macro-nutrient consumption and allows users to set goals for *weight gain*, *weight loss*, *protein consumption*, and other nutrition goals. 
 
@@ -10,8 +9,8 @@ I am interested in this project because I enjoy exercising and doing
 workouts to keep myself in shape. However, I tend to find myself struggling with tracking the exercises I need 
 to complete, and the amount of protein I need to consume. Building this project helps people like me to have an
 organized tracker that keeps everything in order and shows what exercise I need to complete to reach my physique goal.
-## User Story
 
+## User Story
 - As a user, I want to be able to add my workout to the list of workouts that I need to complete.
 - As a user, I want to be able to view the list of workouts I need to complete.
 - As a user, I want to be able to remove the workouts from list of workouts.
@@ -29,8 +28,6 @@ organized tracker that keeps everything in order and shows what exercise I need 
 - You can locate my visual component by clicking "View Graph" which displays a bar chart on the right of the panel with title: "Weekly Protein Intake Graph"
 - You can save the state of my application by clicking the "Save" button located in the top of the panel.
 - You can reload the state of my application by clicking the "Load" button in the top of the panel.
-
-# Phase 4: Task 2
 
 Thu Nov 27 22:39:08 PST 2025
 Workout added: Push up
@@ -52,8 +49,3 @@ Logged 45g of protein for day 0
 
 Thu Nov 27 22:41:17 PST 2025
 Reset weekly protein intake log
-
-# Phase 4: Task 3
-The UML class diagram reflects the final structure of my application, it shows the relationships between the model package, the UI package, and persistence package. It uses the interface implementations and class associations to illustrate how each classes are connected and how to display the user interface.
-
-If I had more time to work on the project, I would refactor some of the responsibilities from the FitnessApp and FitnessGUI class, because both classes handle a lot of tasks and have a lot of methods, I would refactor the functionalities that handle the protein tracking actions into a separate class to keep the UI code cleaner and easier to manage and debug. It would also make the app easier to improve and add additional functionalities.
